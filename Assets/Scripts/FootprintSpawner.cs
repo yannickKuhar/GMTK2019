@@ -7,7 +7,8 @@ public class FootprintSpawner : MonoBehaviour
 {
     public GameObject FootprintPrefab;
     public float SpawnDelay = 1f;
-
+    public float displacementStrength = 0.4f;
+    
     private TargetStateMachine sm;
     private TargetState lastState;
     private float lastSpawnTime;
@@ -32,7 +33,9 @@ public class FootprintSpawner : MonoBehaviour
                 else if (timeNow > lastSpawnTime + SpawnDelay)
                 {
                     lastSpawnTime = timeNow;
-                    var footprint = Instantiate(FootprintPrefab, transform.position, transform.rotation);
+                    
+                    Vector2 noise = Random.insideUnitCircle * displacementStrength;
+                    var footprint = Instantiate(FootprintPrefab, transform.position + new Vector3(noise.x, 0f, noise.y), transform.rotation);
                 }
                 break;
 
