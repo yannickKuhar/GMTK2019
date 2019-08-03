@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {	
-	// Filed for movemont.
+	// Fileds for movemont.
 	public string horizontalInputName;
 	public string verticalInputName;
 	public float movementSpeed;
 	private CharacterController charController;
 
-	// Filed for jumping.
+	// Fileds for jumping.
 	public float jumpMultyplier;
 	public AnimationCurve jumpFallOff; 
-	public KeyCode jumpKey; 
+	public KeyCode jumpKey;
 	private bool isJumping;
+	
+	// Fields for running.
+	public float deltaSpeedForRunning;
+	public KeyCode runKey;
 
 	private void Awake()
 	{
@@ -39,6 +43,20 @@ public class PlayerMove : MonoBehaviour
 		charController.SimpleMove(forwardMovement + rightMovement);
 
 		JumpInput();
+		Run();
+	}
+
+	private void Run()
+	{
+		if (Input.GetKeyDown(runKey))
+		{
+			movementSpeed += deltaSpeedForRunning;
+		}
+		
+		if (Input.GetKeyUp(runKey))
+		{
+			movementSpeed -= deltaSpeedForRunning;
+		}
 	}
 
 	private void JumpInput()
