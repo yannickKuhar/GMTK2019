@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Footprint : MonoBehaviour
 {
+	public int activeTime = 5;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject, activeTime);
     }
 }
