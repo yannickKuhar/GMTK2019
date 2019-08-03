@@ -6,10 +6,12 @@ class Path {
     public GameObject[] Nodes;
 }
 
+[RequireComponent(typeof(TargetStateMachine))]
 public class TargetController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float waitShort = 2f;
+    public float MoveSpeed = 3f;
+    public float RotateSpeed = 8f;
+    public float ShortWaitDelay = 2f;
 
     public GameObject[] Path1;
     public GameObject[] Path2;
@@ -102,7 +104,7 @@ public class TargetController : MonoBehaviour
 
     private bool IsPositionAt(Vector3 destination)
     {
-        return Vector3.Distance(transform.position, destination) < moveSpeed * 0.01f;
+        return Vector3.Distance(transform.position, destination) < MoveSpeed * 0.01f;
     }
 
     private bool IsAtEndEndOfPath()
@@ -113,8 +115,13 @@ public class TargetController : MonoBehaviour
     private void MoveTowards(Vector3 destination)
     {    
         Vector3 position = transform.position;
-        position = position + Vector3.Normalize(destination - position) * moveSpeed * Time.deltaTime;
+        Vector3 moveDirection = Vector3.Normalize(destination - position);
+        position = position + moveDirection * MoveSpeed * Time.deltaTime;
         transform.position = position;
+
+        Quaternion targetRotation = transform.rotation;
+        targetRotation.SetLookRotation(moveDirection, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, RotateSpeed * Time.deltaTime);
     }
 
     private void ChooseNextNode()
@@ -139,7 +146,7 @@ public class TargetController : MonoBehaviour
 
     private IEnumerator WaitShort()
     {
-        yield return new WaitForSeconds(waitShort);
+        yield return new WaitForSeconds(ShortWaitDelay);
         sm.State = TargetState.CHOOSE_DESTINATION;
     }
 }
