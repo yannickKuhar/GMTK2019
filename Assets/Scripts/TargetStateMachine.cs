@@ -6,7 +6,8 @@ public enum TargetState
     IDLE,
     WAIT_SHORT,
     CHOOSE_DESTINATION,
-    MOVEMENT
+    MOVEMENT_GROUND,
+    MOVEMENT_AIR
 }
 
 public class TargetStateMachine : MonoBehaviour

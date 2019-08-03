@@ -24,9 +24,9 @@ public class FootprintSpawner : MonoBehaviour
     {
         switch(sm.State)
         {
-            case TargetState.MOVEMENT:
+            case TargetState.MOVEMENT_GROUND:
                 var timeNow = Time.time;
-                if (lastState != TargetState.MOVEMENT)
+                if (lastState != TargetState.MOVEMENT_GROUND)
                 {
                     lastSpawnTime = timeNow;
                 }
