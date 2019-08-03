@@ -7,13 +7,13 @@ public class SceneSwitch : MonoBehaviour
 {
     public void LoadLevel()
 	{
-		Debug.Log("yes0");
+		// Debug.Log("yes0");
 		SceneManager.LoadScene(1);
 	}
 
 	public void ExitGame()
 	{
-		Debug.Log("yes1");
+		// Debug.Log("yes1");
 		Application.Quit();
 	}
 }
