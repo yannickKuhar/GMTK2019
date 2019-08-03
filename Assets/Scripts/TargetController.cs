@@ -6,19 +6,11 @@ class Path {
     public GameObject[] Nodes;
 }
 
-enum TargetState {
-    START,
-    IDLE,
-    WAIT_SHORT,
-    CHOOSE_DESTINATION,
-    MOVEMENT
-}
-
 public class TargetController : MonoBehaviour
 {
     public float moveSpeed = 1f;
-
     public float waitShort = 2f;
+
     public GameObject[] Path1;
     public GameObject[] Path2;
     public GameObject[] Path3;
@@ -29,7 +21,7 @@ public class TargetController : MonoBehaviour
 
     private List<Path> Paths = new List<Path>();
 
-    private TargetState state;
+    private TargetStateMachine sm;
     private Coroutine activeCoroutine;
     private Path currentPath;
     private int nodeIndex;
@@ -38,7 +30,8 @@ public class TargetController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        state = TargetState.START;
+        sm = GetComponent<TargetStateMachine>();
+        sm.State = TargetState.START;
 
         foreach (var nodes in new[] { Path1, Path2, Path3, Path4, Path5, Path6, Path7 })
         {
@@ -57,7 +50,7 @@ public class TargetController : MonoBehaviour
         Debug.Log("Paths: " + Paths.Count);
 
         nodeIndex = 0;
-        currentPath = Paths[0];
+        currentPath = Paths[Random.Range(0, Paths.Count - 1)];
         nextNode = currentPath.Nodes[nodeIndex];
 
         transform.position = nextNode.transform.position;
@@ -66,20 +59,20 @@ public class TargetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(state)
+        switch(sm.State)
         {
             case TargetState.START:
-                state = TargetState.WAIT_SHORT;
+                sm.State = TargetState.WAIT_SHORT;
                 break;
             case TargetState.IDLE:
                 // do nothing
                 break;
             case TargetState.WAIT_SHORT:
-                state = TargetState.IDLE;
+                sm.State = TargetState.IDLE;
                 activeCoroutine = StartCoroutine("WaitShort");
                 break;
             case TargetState.CHOOSE_DESTINATION:
-                state = TargetState.MOVEMENT;
+                sm.State = TargetState.MOVEMENT;
                 ChooseNextNode();
                 break;
             case TargetState.MOVEMENT:
@@ -89,7 +82,7 @@ public class TargetController : MonoBehaviour
                     transform.position = destination;
                     if (IsAtEndEndOfPath())
                     {
-                        state = TargetState.WAIT_SHORT;
+                        sm.State = TargetState.WAIT_SHORT;
                     }
                     else
                     {
@@ -147,6 +140,6 @@ public class TargetController : MonoBehaviour
     private IEnumerator WaitShort()
     {
         yield return new WaitForSeconds(waitShort);
-        state = TargetState.CHOOSE_DESTINATION;
+        sm.State = TargetState.CHOOSE_DESTINATION;
     }
 }
