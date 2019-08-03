@@ -16,17 +16,19 @@ public class SoundManager : MonoBehaviour {
  
 	// Refers to the audio source added to the SoundManager
 	// to play sound effects
-	private AudioSource soundEffectAudio;
+	public AudioSource soundEffectAudio;
  
 	// Use this for initialization
-	void Start() {
- 
+	void Start()
+	{
 		// This is a singleton that makes sure you only
 		// ever have one Sound Manager
 		// If there is any other Sound Manager created destroy it
-		if (Instance == null) {
+		if (Instance == null)
+		{
 			Instance = this;
-		} else if (Instance != this) {
+		} else if (Instance != this)
+		{
 			Destroy (gameObject);
 		}
  
@@ -34,9 +36,60 @@ public class SoundManager : MonoBehaviour {
 		soundEffectAudio = theSource;
  
 	}
+
+	public void Stop()
+	{
+		soundEffectAudio.Stop();
+	}
+
+	public void Play(AudioClip clip)
+	{
+		if (soundEffectAudio.isPlaying == false)
+		{
+			soundEffectAudio.clip = clip;
+			soundEffectAudio.Play();
+		}
+	}
+	
+	public void StopPlay(AudioClip clip)
+	{
+		if (soundEffectAudio.isPlaying == false)
+		{
+			soundEffectAudio.clip = clip;
+			soundEffectAudio.Play();
+		}
+		else if (clip )
+		{
+			soundEffectAudio.Stop();
+			soundEffectAudio.clip = clip;
+			soundEffectAudio.Play();
+		}
+	}
+	public void StopContinuousPlay(AudioClip clip)
+	{
+		if (soundEffectAudio.isPlaying == false)
+		{
+			soundEffectAudio.clip = clip;
+			soundEffectAudio.Play();
+		}
+		else if (clip )
+		{
+			if (!soundEffectAudio.clip.ToString().Equals(run.ToString()))
+			{
+				soundEffectAudio.Stop();
+				soundEffectAudio.clip = clip;
+				soundEffectAudio.Play();
+			}
+		}
+	}
  
 	// Other GameObjects can call this to play sounds
-	public void PlayOneShot(AudioClip clip) {
-		soundEffectAudio.PlayOneShot(clip);
+	public void PlayOneShot(AudioClip clip)
+	{
+
+		if (soundEffectAudio.isPlaying == false)
+		{
+			soundEffectAudio.PlayOneShot(clip);
+		}
 	}
 }

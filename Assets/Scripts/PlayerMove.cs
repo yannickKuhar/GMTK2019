@@ -19,9 +19,11 @@ public class PlayerMove : MonoBehaviour
 	// Fields for running.
 	public float deltaSpeedForRunning;
 	public KeyCode runKey;
+	private bool isRunning;
 
 	private void Awake()
 	{
+		isRunning = false;
 		charController = GetComponent<CharacterController>();
 	}
 
@@ -39,23 +41,45 @@ public class PlayerMove : MonoBehaviour
 
 		Vector3 forwardMovement = transform.forward * vertInput;
 		Vector3 rightMovement = transform.right * horizInput;
+		
+		Vector3 move = forwardMovement + rightMovement;
 
-		charController.SimpleMove(forwardMovement + rightMovement);
+		charController.SimpleMove(move);
 
+		//	Debug.Log("x: " + move.x);
+		//	Debug.Log("y: " + move.y);
+		//	Debug.Log("z: " + move.z);
+		
+		if ((move.x != 0) && (move.z != 0))
+		{
+			SoundManager.Instance.Play(SoundManager.Instance.walk);
+		}
+		else if ((move.x == 0) && move.y == 0 &&(move.z == 0) && !isJumping)
+		{
+			SoundManager.Instance.Stop();
+		}
+
+		Run(move);
 		JumpInput();
-		Run();
 	}
 
-	private void Run()
+	private void Run(Vector3 move)
 	{
 		if (Input.GetKeyDown(runKey))
 		{
 			movementSpeed += deltaSpeedForRunning;
+			isRunning = true;
+		}
+
+		if (isRunning && (move.x != 0) && (move.z != 0))
+		{
+			SoundManager.Instance.StopContinuousPlay(SoundManager.Instance.run);
 		}
 		
 		if (Input.GetKeyUp(runKey))
 		{
 			movementSpeed -= deltaSpeedForRunning;
+			isRunning = false;
 		}
 	}
 
@@ -64,6 +88,9 @@ public class PlayerMove : MonoBehaviour
 		// Prevents double jump.
 		if (Input.GetKeyDown(jumpKey) && !isJumping)
 		{
+			SoundManager.Instance.Stop();
+			SoundManager.Instance.Play(SoundManager.Instance.jump);
+			// SoundManager.Instance.StopPlay(SoundManager.Instance.jump);
 			isJumping = true;
 			StartCoroutine(JumpEvent());
 		}
