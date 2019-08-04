@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.43609828, g: 0.5138951, b: 0.5283019, a: 1}
+  m_FogColor: {r: 0.27948, g: 0.3856487, b: 0.408, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.03
   m_LinearFogStart: 0
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -615,11 +615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (10)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -689,6 +684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2408667
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (10)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -900,11 +900,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (8)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -974,6 +969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23614359
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (8)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -2995,11 +2995,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (6)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3069,6 +3064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23614359
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (6)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -5779,6 +5779,7 @@ Transform:
   - {fileID: 71001377}
   - {fileID: 984522785}
   - {fileID: 505777533}
+  - {fileID: 5006512735574487420}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6591,11 +6592,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6665,6 +6661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23836708
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -6959,11 +6960,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7033,6 +7029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1812446
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -7628,11 +7629,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (4)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7702,6 +7698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1729468
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (4)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -11605,11 +11606,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (9)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11679,6 +11675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.17294692
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (9)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -13060,11 +13061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (5)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13134,6 +13130,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23614359
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (5)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -13366,11 +13367,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (7)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13440,6 +13436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.17294692
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (7)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -14330,11 +14331,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1996619753}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
-        type: 3}
-      propertyPath: m_Name
-      value: Mushrooms02 (3)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14404,6 +14400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1812446
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: aba2fa2a842622a40aa217562b266646,
+        type: 3}
+      propertyPath: m_Name
+      value: Mushrooms02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: aba2fa2a842622a40aa217562b266646,
         type: 3}
@@ -14907,7 +14908,6 @@ Transform:
   - {fileID: 1958135471}
   - {fileID: 968004618}
   - {fileID: 1041200937}
-  - {fileID: 5006512735574487420}
   m_Father: {fileID: 867420409}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15995,8 +15995,8 @@ Transform:
   m_LocalPosition: {x: -0.51998216, y: 0.4399946, z: -0.001029997}
   m_LocalScale: {x: 0.004397733, y: 0.004397729, z: 0.0043977294}
   m_Children: []
-  m_Father: {fileID: 1996619753}
-  m_RootOrder: 12
+  m_Father: {fileID: 867420409}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5006512736075772901
 Transform:

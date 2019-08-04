@@ -17,7 +17,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
@@ -25,22 +25,22 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 2
   toneCurveToeStrength:
     overrideState: 1
-    value: -0
+    value: 0.526
   toneCurveToeLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0
   toneCurveShoulderStrength:
     overrideState: 1
-    value: 1
+    value: 0.17
   toneCurveShoulderLength:
     overrideState: 0
     value: 0.5
   toneCurveShoulderAngle:
     overrideState: 1
-    value: 1
+    value: 0
   toneCurveGamma:
     overrideState: 0
     value: 1
@@ -70,8 +70,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1.5
   contrast:
     overrideState: 0
     value: 0
