@@ -21,6 +21,9 @@ public class PlayerMove : MonoBehaviour
 	public KeyCode runKey;
 	private bool isRunning;
 
+	// Fields for attacking
+	public Animator handsAnimator;
+
 	private void Awake()
 	{
 		isRunning = false;
@@ -30,10 +33,16 @@ public class PlayerMove : MonoBehaviour
 	private void Update()
 	{
 		PlayerMovement();
+		PlayerAttack();
 	}
 
 	//////////////////// Functions. ////////////////////
 	
+	private void PlayerAttack()
+	{
+		handsAnimator.SetBool("Attacking", Input.GetButton("Fire1"));
+	}
+
 	private void PlayerMovement()
 	{
 		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
