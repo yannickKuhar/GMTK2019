@@ -18,6 +18,8 @@ public class TargetController : MonoBehaviour
     
     public GameObject HeightControl;
 
+    public Animator Animator;
+
     public GameObject[] Path1;
     public GameObject[] Path2;
     public GameObject[] Path3;
@@ -77,12 +79,17 @@ public class TargetController : MonoBehaviour
                 break;
             case TargetState.IDLE:
                 // do nothing
+                Animator.SetBool("Running", false);
+                Animator.SetBool("Flying", false);
                 break;
             case TargetState.WAIT_SHORT:
                 sm.State = TargetState.IDLE;
+                Animator.SetBool("Running", false);
+                Animator.SetBool("Flying", false);
                 activeCoroutine = StartCoroutine("WaitShort");
                 break;
             case TargetState.CHOOSE_DESTINATION:
+                Animator.SetBool("Running", true);
                 sm.State = TargetState.MOVEMENT_GROUND;
                 ChooseNextNode();
                 break;
@@ -145,6 +152,7 @@ public class TargetController : MonoBehaviour
             nodeIndex = 0;
             var pathCandidates = Paths.FindAll(path => path.Nodes[0] == nextNode);
             currentPath = pathCandidates[Random.Range(0, pathCandidates.Count - 1)];
+            Animator.SetBool("Running", true);
         }
         else 
         {
@@ -154,11 +162,15 @@ public class TargetController : MonoBehaviour
                 {
                     desiredHeight = 0f;
                     sm.State = TargetState.MOVEMENT_GROUND;
+                    Animator.SetBool("Running", true);
+                    Animator.SetBool("Flying", false);
                 }
                 else
                 {
                     desiredHeight = FlightHeight;
                     sm.State = TargetState.MOVEMENT_AIR;
+                    Animator.SetBool("Running", false);
+                    Animator.SetBool("Flying", true);
                 }
             }
             nodeIndex++;
