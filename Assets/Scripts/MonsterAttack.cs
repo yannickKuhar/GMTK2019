@@ -33,7 +33,7 @@ public class MonsterAttack : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire2"))
             {
-                StartAttack();
+                // StartAttack();
             }
 
             if (Vector3.Distance(transform.position, CaveMonster.transform.position) < DistanceToFigth)
