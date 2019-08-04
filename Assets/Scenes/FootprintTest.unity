@@ -1452,6 +1452,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6476497974130435491, guid: 7fbf766d2006043a68f74143347e291b,
+        type: 3}
+      propertyPath: SpawnDelay
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3043684206048361502, guid: 7fbf766d2006043a68f74143347e291b,
         type: 3}
       propertyPath: Path3.Array.size
@@ -1632,10 +1637,5 @@ PrefabInstance:
       propertyPath: Path2.Array.data[3]
       value: 
       objectReference: {fileID: 531938639}
-    - target: {fileID: 6476497974130435491, guid: 7fbf766d2006043a68f74143347e291b,
-        type: 3}
-      propertyPath: SpawnDelay
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fbf766d2006043a68f74143347e291b, type: 3}
