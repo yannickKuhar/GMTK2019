@@ -4,7 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
-{
+{	
+	public void SelectTorch()
+	{
+		WeaponType.weaponType = "torch";
+	}
+
+	public void SelectSling()
+	{
+		WeaponType.weaponType = "sling";
+	}
+
     public void LoadLevel()
 	{
 		// Debug.Log("yes0");

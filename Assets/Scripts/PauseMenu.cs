@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Cursor: " + Cursor.lockState);
+		// Debug.Log("Cursor: " + Cursor.lockState);
     }
 
 	//////////////////// Functions. ////////////////////

@@ -59,6 +59,8 @@ public class PlayerMove : MonoBehaviour
 			SoundManager.Instance.Stop();
 		}
 
+		// Debug.Log("weapon: " + WeaponType.weaponType);
+
 		Run(move);
 		JumpInput();
 	}
