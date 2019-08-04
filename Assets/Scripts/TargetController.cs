@@ -167,7 +167,7 @@ public class TargetController : MonoBehaviour
         if (currentPath != null)
         {
             nextNode = currentPath.Nodes[nodeIndex];
-            Debug.Log("Choose node with index " + nodeIndex + " and name " + nextNode.name);
+            // Debug.Log("Choose the next node named " + nextNode.name);
         }
     }
 

@@ -5743,8 +5743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FootprintPrefab: {fileID: 9167801480417486256, guid: c93b46e49981d4f79b0f849c4c59c800,
     type: 3}
-  SpawnDelay: 0.5
-  displacementStrength: 0.4
+  SpawnDelay: 0.25
+  displacementStrength: 0.2
 --- !u!1001 &900306048
 PrefabInstance:
   m_ObjectHideFlags: 0
