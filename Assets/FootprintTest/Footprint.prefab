@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 9167801480417486256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.84, y: 0, z: -0.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2381440859477522816}
   - {fileID: 8947674148940994057}
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visible: 1
   Opacity: 1
-  FadeSpeed: 0.2
+  FadeSpeed: 0.05
   Renderer: {fileID: 1989142657814277239}
 --- !u!135 &2217046161686516772
 SphereCollider:
