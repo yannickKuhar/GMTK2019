@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4769355568620301677}
   - component: {fileID: 6506627902358316038}
   - component: {fileID: 5114312336815586766}
-  - component: {fileID: 90553450728880024}
+  - component: {fileID: -7544983990351822946}
   m_Layer: 0
   m_Name: Sling
   m_TagString: Untagged
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &90553450728880024
+--- !u!114 &-7544983990351822946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

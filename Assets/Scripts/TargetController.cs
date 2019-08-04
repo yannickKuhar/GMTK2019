@@ -6,10 +6,17 @@ class Path {
     public GameObject[] Nodes;
 }
 
+[RequireComponent(typeof(TargetStateMachine))]
 public class TargetController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float waitShort = 2f;
+    public float MoveSpeed = 3f;
+    public float RotateSpeed = 8f;
+    public float ShortWaitDelay = 2f;
+
+    public float FlightHeight = 4f;
+    public float AscendSpeed = 2f;
+    
+    public GameObject HeightControl;
 
     public GameObject[] Path1;
     public GameObject[] Path2;
@@ -27,11 +34,15 @@ public class TargetController : MonoBehaviour
     private int nodeIndex;
     private GameObject nextNode;
 
+    private float desiredHeight;
+
     // Start is called before the first frame update
     void Start()
     {
         sm = GetComponent<TargetStateMachine>();
         sm.State = TargetState.START;
+
+        desiredHeight = 0f;
 
         foreach (var nodes in new[] { Path1, Path2, Path3, Path4, Path5, Path6, Path7 })
         {
@@ -72,10 +83,11 @@ public class TargetController : MonoBehaviour
                 activeCoroutine = StartCoroutine("WaitShort");
                 break;
             case TargetState.CHOOSE_DESTINATION:
-                sm.State = TargetState.MOVEMENT;
+                sm.State = TargetState.MOVEMENT_GROUND;
                 ChooseNextNode();
                 break;
-            case TargetState.MOVEMENT:
+            case TargetState.MOVEMENT_GROUND:
+            case TargetState.MOVEMENT_AIR:
                 Vector3 destination = nextNode.transform.position;                
                 if (IsPositionAt(destination))
                 {
@@ -102,7 +114,7 @@ public class TargetController : MonoBehaviour
 
     private bool IsPositionAt(Vector3 destination)
     {
-        return Vector3.Distance(transform.position, destination) < moveSpeed * 0.01f;
+        return Vector3.Distance(transform.position, destination) < MoveSpeed * 0.01f;
     }
 
     private bool IsAtEndEndOfPath()
@@ -113,8 +125,17 @@ public class TargetController : MonoBehaviour
     private void MoveTowards(Vector3 destination)
     {    
         Vector3 position = transform.position;
-        position = position + Vector3.Normalize(destination - position) * moveSpeed * Time.deltaTime;
+        Vector3 moveDirection = Vector3.Normalize(destination - position);
+        position = position + moveDirection * MoveSpeed * Time.deltaTime;
         transform.position = position;
+
+        Quaternion targetRotation = transform.rotation;
+        targetRotation.SetLookRotation(moveDirection, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, RotateSpeed * Time.deltaTime);
+
+        Vector3 heightPosition = HeightControl.transform.position;
+        heightPosition.y = Mathf.Lerp(heightPosition.y, desiredHeight, AscendSpeed * Time.deltaTime);
+        HeightControl.transform.position = heightPosition;
     }
 
     private void ChooseNextNode()
@@ -123,23 +144,36 @@ public class TargetController : MonoBehaviour
         {
             nodeIndex = 0;
             var pathCandidates = Paths.FindAll(path => path.Nodes[0] == nextNode);
-            currentPath = pathCandidates[Random.Range(0, pathCandidates.Count-1)];
+            currentPath = pathCandidates[Random.Range(0, pathCandidates.Count - 1)];
         }
         else 
         {
+            if (nextNode.name.StartsWith("S_"))
+            {
+                if (desiredHeight > 0f)
+                {
+                    desiredHeight = 0f;
+                    sm.State = TargetState.MOVEMENT_GROUND;
+                }
+                else
+                {
+                    desiredHeight = FlightHeight;
+                    sm.State = TargetState.MOVEMENT_AIR;
+                }
+            }
             nodeIndex++;
         }
 
         if (currentPath != null)
         {
             nextNode = currentPath.Nodes[nodeIndex];
-            // Debug.Log("Choose node with index " + nodeIndex);
+            // Debug.Log("Choose the next node named " + nextNode.name);
         }
     }
 
     private IEnumerator WaitShort()
     {
-        yield return new WaitForSeconds(waitShort);
+        yield return new WaitForSeconds(ShortWaitDelay);
         sm.State = TargetState.CHOOSE_DESTINATION;
     }
 }
