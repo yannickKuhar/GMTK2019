@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip walk;
 	public AudioClip run;
 	public AudioClip jump;
+	public AudioClip cave;
  
 	// Refers to the audio source added to the SoundManager
 	// to play sound effects
